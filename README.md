@@ -1,7 +1,7 @@
 # emission-website
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ed9c227f-ad9b-450e-8447-4b60f0f792c4/deploy-status)](https://app.netlify.com/sites/travelsurvey/deploys)
 
-This a travel survey landing page created with the [Blogdown](https://github.com/rstudio/blogdown) package and deployed on Netlify.
+This a travel survey landing page created with the [Blogdown](https://github.com/rstudio/blogdown) package and deployed on Netlify. See https://survey.amarin.dev.
 
 ## Edit the content
 
