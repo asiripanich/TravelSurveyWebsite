@@ -1,0 +1,307 @@
+---
+title: ""
+author: Amarin
+date: "2019-08-07"
+description: Initial project description
+sec: 1
+output: 
+  html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+source(here::here("functions.R"))
+```
+<style>
+.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(0, 139, 41, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(0, 181, 26, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+</style>
+
+## Research description
+
+<div style="text-align: justify"> 
+
+You are invited to participate in this research study. The aim of this research study is to collect information about the personal travel behaviour of residents in all metropolitan areas across Australia. Information about people's day-to-day travel behaviour is critical to predict future travel demand and infrastructure needs. This information is even more important during a rare event such as the current virus pandemic. Having this data will allow transport services to be better planned for the most vulnerable people in our society, when the next pandemic comes.
+
+</div>
+
+`r get_reward_text()`
+
+__Requirements:__ 
+
+- You are eighteen years old or older
+-	You reside in a metropolitan area in Australia.
+-	You own a smartphone running Android (compatibility varies with device) or Apple iOS 9 (or newer).
+-	You have a Gmail account[*](#why-gmail).
+
+```{r, echo = FALSE}
+# all in minutes
+INSTALLATION_TIME <- 10
+ONBOARDING_TIME <- 10
+AVG_DAILY_NO_TRIPS <- 4
+ONE_TRIPEND_TIME <- 1
+TRIPEND_TIME <- AVG_DAILY_NO_TRIPS * get_n_days() 
+POSTEXPERIENCE_SURVEY_TIME <- 5
+```
+
+
+:hourglass:  __Estimated total time spent: `r INSTALLATION_TIME + ONBOARDING_TIME + TRIPEND_TIME + POSTEXPERIENCE_SURVEY_TIME` minutes over `r get_n_days()` days.__
+
+- 10 minutes to install the emTripLog application;
+- 10 minutes to complete the opening questionnaire;
+- Less than 1 minute to fill in questions typically prompted after completion of a trip[*](#trips-assumption).
+- Less than 5 minutes to complete the closing questionnaire
+
+<p>
+__Research team contact:__<br>
+
+<b>Name:</b> Assoc Prof Taha H. Rashidi<br>
+<b>Position:</b> Associate Professor<br>
+<b>Telephone:</b> (+61 2) 9385 5063<br>
+<b>Email:</b> rashidi@unsw.edu.au<br>
+
+<b>Name:</b> Amarin Siripanich<br>
+<b>Position:</b> PhD Student<br>
+<b>Telephone:</b> (+61 2) 9385 5721<br>
+<b>Email:</b> asiripanich@unsw.edu.au<br>
+</p>
+
+## Join this study
+
+<div style="text-align: justify"> 
+
+><em>:exclamation: By using the emTripLog application you consent that your data collected during the study period by the emTripLog application, which will be anonymised to protect your privacy, can be used for future reserach purposes.</em>
+
+</div>
+
+There are just <b>`r ifelse(current_branch != "master", 3, 2)` steps</b> to complete this study.
+
+1) Install ___emTripLog___ on your smartphone.
+
+2) Use the the application on your phone for `r get_n_days()` days.
+
+`r if(current_branch != "master") {"3) Earn your reward! :tada:"}`
+
+
+### Step 1: Install emTripLog ![](/post/about_files/emission-icon.png){width=28px height=25px}
+
+<br></br>
+
+<center>:exclamation: <strong>Please read the entire instruction of this step before proceeding to download the application. </strong> :exclamation: </center>
+
+<br></br>
+
+:point_right: Use one of the links below to install the application.
+
+<div style="overflow-x:auto;">
+<center>
+|  Operating system |  Download link |  QR|
+|:----:|:----:|:-----:|
+|Android|[![](/post/about_files/Google_Play_Store_badge_EN.svg){width=174px height=65px}](https://play.google.com/store/apps/details?id=edu.berkeley.eecs.embase)|  ![](/post/about_files/emTripLog-android.png)|
+|iOS|[![](/post/about_files/apple-badge.svg){width=174px height=65px}](https://apps.apple.com/us/app/emtriplog/id1362434685)|  ![](/post/about_files/emTripLog-ios.png)|
+</center>
+</div>
+
+<div style="text-align: justify"> 
+
+<br>
+
+:point_right: Once the ___emTripLog___ application __is installed__ on your phone, __use your smartphone__ to  __click on the green button__ below which will launch _emTripLog_ on your phone.
+
+```{r, echo = FALSE}
+EMISSION_PHONE_BRANCH <- switch(current_branch,
+                                "master" = "rciti1",
+                                "fiveperday" = "rciti2",
+                                "twenty" = "rciti3")
+```
+
+<br>
+
+<center>
+  <button class="favorite styled" type="button" onclick="window.location.href = 'emission://change_client?new_client=`r EMISSION_PHONE_BRANCH`&clear_local_storage=true&clear_usercache=true';"> 
+    Already have emTripLog? <br> Click here to join 
+  </button>
+</center>
+
+<br>
+
+<!-- </div> -->
+
+<!-- <center>[Click on this link on your phone to launch emTripLog and join the study](emission://change_client?new_client=rciti1&clear_local_storage=true&clear_usercache=true)</center> -->
+
+<!-- <br></br> -->
+
+<center>__OR scan__</center>
+<br></br>
+<center>![](/post/about_files/join-`r EMISSION_PHONE_BRANCH`-branch.png){width=250 height=250}</center>
+<br></br>
+
+<div style="text-align: justify"> 
+
+:point_right: You should see a pop-up window. __Choose "Apply"__ and wait until the download is completed.
+
+</div>
+
+<br></br>
+<center>![](/post/about_files/emTripLog-ui-update.jpg){width=225 height=450}</center>
+<br></br>
+
+<div style="text-align: justify"> 
+
+:point_right: Next, you __must allow all the permissions asked__ for _emTripLog_ to work properly. Especially, the __location permission__ that must be set to the __"Always"__ option, if it is available. 
+
+> [](:):exclamation: If you are using iOS 13 the __'Always'__ option in 'Location' will not be available in the pop-up, as shown below. You must go to your iPhone's 'Settings' :arrow_right: 'Privacy' :arrow_right: 'Location Services' :arrow_right: 'emTripLog' and choose the __'Always'__ option manually.
+
+</div>
+
+<div style="overflow-x:auto;">
+|  Notification|  Motion and Fitness|  Location| Permission|
+|:--:|:--:|:--:|:--:|
+|![](/post/about_files/ios-notification-permission.jpg){width=225px height=450px}|![](/post/about_files/ios-sensor-permission.jpg){width=225px height=450px}|  ![](/post/about_files/ios-location-permission.jpg){width=225px height=450px}|![](/post/about_files/ios-emTripLog-permission.png){width=225px height=450px}|
+</div>
+
+<div style="text-align: justify"> 
+
+> Unsure how to change the location permission on your phone? See this [guide](#ios-location-permission) for iOS devices or this [guide](#android-location-permission) for Android devices.
+
+:point_right: Follow the instruction given on the application from here on. 
+
+:point_right: Once your finish the on-boarding process, you should see a blank screen like below. Now just __leave _emTripLog_ running in the background__ and forget about it. _emTripLog_ will notify you when it needs your attention again. :smile: 
+
+</div> 
+
+<br></br>
+<center>![](/post/about_files/ems_blank_screen.png){width=225 height=450}</center>
+<br></br>
+
+:exclamation: __Important notes__: 
+
+<div style="text-align: justify"> 
+
+- `r ifelse(current_branch != "master", 
+    "You __must__ leave the emTripLog app __running in the background__, meaning that you should not quit the app as it won't be able to track your location and fail you from earning your reward :worried:.", 
+    "Please leave the emTripLog app __running in the background__, meaning that you should not quit the app as it won't be able to track your location at all. :worried:")`
+
+</div>
+
+<br></br>
+<!-- <center>![](/post/about_files/ios_do_not_quit_app.png){width=225 height=450, style="float: right"}</center> -->
+<center>![](/post/about_files/ios_do_not_quit_app.png){width=225 height=450}</center>
+<br></br>
+
+<div style="text-align: justify"> 
+
+- Applications that requires location service, such as Google Map, generally consume a lot of battery. In this `r get_n_days()`-day period, __you may experience shorter battery life__ than is expected. Fear not! emTripLog has been optimised to minimise the use of the phone's battery use the battery (location tracking is automatically disabled when not needed). :wink:
+
+</div>
+
+### Step 2: Use the application for `r get_n_days()` days
+
+<div style="text-align: justify"> 
+
+> :information_source: `r ifelse(current_branch != "master", "To earn your reward you must", "To make sure that uour travel diary is complete, please")` answer all trip end surveys on the emTripLog app and leave it running on the background for __`r get_n_days()` days.__ For example, If you join the study on a Monday at 9.00 AM, then the next Friday at 9.00 AM (24 hours x 4 days) is when you may stop using the application.
+
+:point_right: Everyday at 8.30 PM, you will __receive a notification__ to remind you to __answer trip-end surveys.__ A trip-end survey contains a few questions about your __destination purpose__ and __mode of travel__. The video below shows how to answer a trip-end survey.
+
+<hr>
+
+<div style="overflow-x:auto;">
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZZpAaM-5yCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
+</div>
+
+<hr>
+
+:point_right: Upon completion of your __`r get_n_days()`-day travel survey__, you `r ifelse(current_branch != "master", "MUST", "please")` go to the 'Profile' tab on the _emTripLog_ app and click on the red document icon next to 'End Survey' to __fill in a post-experience survey__. After that, you may uninstall the application from your smartphone.
+
+</div>
+
+
+`r if (current_branch != "master") {
+'### Step 3: Earn your reward
+
+<div style="overflow-x:auto;">
+
+Once it is shown on our system that you have completed your survey, we will contact you via the email that you have used to register to the study so you can receive your reward.
+
+</div>'
+}`
+
+
+## Acknowledgement
+
+<div style="overflow-x:auto;">
+
+This study uses the emTripLog application, developed by Dr Shankari Kalyanaraman, which is built on the e-mission framework as presented in **Shankari, K., Bouzaghrane, M. A., Maurer, S. M., Waddell, P., Culler, D. E., & Katz, R. H. (2018). e-mission: An Open-Source, Smartphone Platform for Collecting Human Travel Data: Transportation Research Record. https://doi.org/10.1177/0361198118770167**
+
+## Frequently Asked Questions (FAQ) {#FAQ}
+
+### I have an installation issue, who can I contact?
+
+If you need help to install emTripLog on your mobilephone please contact Amarin at a.siripanich@unsw.edu.au.
+
+### I don't see any nofications from emTripLog
+
+If you do not see any notifications from emTripLog, please make sure that emTripLog has the permission to show you notifications. See this [guide](#emtriplog-notification-permission) if you are not sure how to turn on notification for an application on your smartphone.
+
+### Why some trips in the 'Diary' tab don't have an 'Add Trip Details' button?
+
+emTripLog sends your raw trip data to a cloud server to be processed everyday at 8.00pm. So when you see a trip that appears in a green box it means that that trip has not been processed. Once the trip is processed its box will appear in white color with an 'Add Trip Details' button. 
+
+### How to turn on location service on iOS? {#ios-location-permission}
+
+Please see this [tutorial](https://support.apple.com/en-au/HT207092) for iOS devices. 
+
+### How to turn on location service on Android? {#android-location-permission}
+
+Please see this [tutorial](https://support.google.com/accounts/answer/6179507?hl=en) for Android devices.
+
+### How to turn on notification for emTripLog {#emtriplog-notification-permission}
+
+For iOS device please consult this [webpage](https://support.apple.com/en-au/guide/iphone/iph7c3d96bab/ios).
+
+For Android device please consult this [webpage](https://support.google.com/android/answer/9079661?hl=en).
+
+### Why Gmail? {#why-gmail}
+
+The emTripLog application requires a Gmail account for log-in. If you are not comfortable using your Gmail account, you can create a fake account just for this study. 
+
+### What are the assumptions used in the total estimated time spent? {#trips-assumption}
+
+Assuming that you complete an average of `r AVG_DAILY_NO_TRIPS` trips per day, it is expected that participation in this research study will not consume more than `r AVG_DAILY_NO_TRIPS * ONE_TRIPEND_TIME *  get_n_days()` minutes of your time during the entire study period (excluding the time spent in the user profile and post-experience questionnaires).
+
+### I would like to have all my data detroyed?
+
+You are the owner of your data. If you decide that you no longer want to be part of this study please contact the research team at rashidi@unsw.edu.au to have you data destroy from our database.
+
+### Who will have access to my data?
+
+All data collected from this study will be kept in a highly secured UNSW server at the RCITI  lab and will be confidentialised to prevent your identity being exposed. The data will be strictly accessible only by the research team.
+
+</div>

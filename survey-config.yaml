@@ -1,0 +1,11 @@
+branch:
+  master:
+    reward_amount: 0
+    reward_text: $AUD 0
+  fiveperday:
+    reward_amount: 5
+    reward_text: $AUD 5 per day with completed trip-end surveys
+  twenty:
+    reward_amount: 20
+    reward_text: $AUD 20 when complete 4 days of use
+n_days: 4
